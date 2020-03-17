@@ -1,6 +1,6 @@
 const dbConfig = {
-    collection: 'raspberry_collection',
-    document: 'lectorpi_doc'
+    collection: 'raspberry',
+    document: 'dashboard'
 };
 
 const app = {
@@ -13,8 +13,9 @@ const app = {
         this.cacheDOMEvents();
 
         this._matrix = {
-            isOn: false, color: {value: '#000000', type: 'hex'}
+            isOn: false, color: {value: '#FFF', type: 'hex'}
         };
+
     },
     cacheDOMElements() {
         this.$colorPicker = document.querySelector('#colorPicker');
@@ -26,7 +27,6 @@ const app = {
             e.preventDefault();
             this._matrix.color.value = this.$colorPicker.value;
             this._matrix.isOn = this.$toggleMatrix.checked;
-
             this.updateInFirebase();
         });
     },
